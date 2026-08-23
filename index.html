@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student CRUD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto mt-3">
+                <div class="card">
+                    <div class="card-header bg-success">
+                        <h2 class="text-center">Student Form</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="form">
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="fname" class="col-md-3">First Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="fname" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="lname" class="col-md-3">Last Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="lname" required>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="gender" class="col-md-3">Gender</label>
+
+                                    <div class="col-md-9">
+
+                                        <div>
+                                            <label for="male"><input type="radio" name="gender" value="male"
+                                                    class="mr-2" id="male">Male</label>
+                                        </div>
+                                        <div>
+                                            <label for="female"><input type="radio" name="gender" value="female"
+                                                    class="mr-2" id="female">Female</label>
+                                        </div>
+                                        <div>
+                                            <label for="other"><input type="radio" name="gender" value="other"
+                                                    class="mr-2" id="other">Other</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="contact" class="col-md-3">Contact</label>
+                                    <div class="col-md-9">
+                                        <input type="number" class="form-control" id="contact" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="email" class="col-md-3">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-md-9 offset-md-3">
+                                        <button type="submit" class="btn btn-primary btn-sm btn-block"
+                                            id="submitBtn">Add
+                                            Student</button>
+                                    </div>
+
+                                    <div class="col-md-9 offset-md-3">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block d-none"
+                                            id="updateBtn">Update
+                                            Student</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 mx-auto mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Sr. No.</th>
+                                    <th>Student Name</th>
+                                    <th>Gender</th>
+                                    <th>Contact</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="stdContainer">
+                                <!-- <tr>
+                                    <td>1</td>
+                                    <td>om more</td>
+                                    <td>male</td>
+                                    <td>434343434</td>
+                                    <td>om@gmail.com</td>
+                                    <td class="d-flex justify-content-between">
+                                        <i class="fa-solid fa-pen-to-square fa-2x text-primary"></i>
+                                        <i class="fa-regular fa-trash-can fa-2x text-danger"></i>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

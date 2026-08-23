@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Cards */
+
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    border: none;
+    padding: 20px;
+    background: linear-gradient(135deg, #198754, #157347);
+}
+
+.card-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Form */
+
+.card-body {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #343a40;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.15rem rgba(25, 135, 84, 0.2);
+}
+
+/* Gender */
+
+input[type="radio"] {
+    accent-color: #198754;
+}
+
+.col-md-9>div label {
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+/* Buttons */
+
+button {
+    border-radius: 8px !important;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Table */
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #198754;
+    color: #fff;
+    border-color: #15774a;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+.table tbody td {
+    text-align: center;
+    vertical-align: middle;
+    color: #343a40;
+}
+
+.table tbody tr {
+    transition: 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #eefaf4;
+}
+
+/* Action icons */
+
+.table tbody td:last-child {
+    width: 120px;
+}
+
+.table tbody td i {
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.table tbody td i:hover {
+    transform: scale(1.12);
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    body {
+        padding: 15px 0;
+    }
+
+    .card-body {
+        padding: 20px 15px;
+    }
+
+    .form-group label {
+        margin-bottom: 8px;
+    }
+
+    .table {
+        font-size: 13px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 5px;
+    }
+
+    .table tbody td i {
+        font-size: 18px;
+    }
+}
