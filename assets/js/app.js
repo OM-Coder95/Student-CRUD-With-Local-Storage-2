@@ -8,6 +8,7 @@ const contactControl = document.getElementById("contact");
 const emailControl = document.getElementById("email");
 const submitBtn = document.getElementById("submitBtn");
 const updateBtn = document.getElementById("updateBtn");
+const hideTableControl = document.getElementById("hideTable");
 
 // Database
 
@@ -16,6 +17,18 @@ let jsonArr = localStorage.getItem("studentArr");
 let studentArr = jsonArr ? JSON.parse(jsonArr) : [];
 
 // Functions
+
+// hideTabel
+
+function hideTable() {
+  if (studentArr.length === 0) {
+    hideTableControl.classList.add("d-none");
+  } else {
+    hideTableControl.classList.remove("d-none");
+  }
+}
+
+// read
 
 function showOnUI(arr) {
   let result = "";
@@ -29,8 +42,8 @@ function showOnUI(arr) {
                                     <td>${ele.contact}</td>
                                     <td>${ele.email}</td>
                                     <td class="d-flex justify-content-between">
-                                        <i onclick = "editStd(this)" class="fa-solid fa-pen-to-square fa-2x text-primary"></i>
-                                        <i onclick = "removeStd(this)" class="fa-regular fa-trash-can fa-2x text-danger"></i>
+                                        <button  onclick="editStd(this)" class="btn btn-sm"><i class="fa-solid fa-pen-to-square fa-2x text-primary"></i></button>
+                                        <button  onclick="removeStd(this)" class="btn btn-sm deleteBtn"><i class="fa-regular fa-trash-can fa-2x text-danger"></i></button>
                                     </td>
                                 </tr>`;
   });
@@ -39,6 +52,7 @@ function showOnUI(arr) {
 }
 
 showOnUI(studentArr);
+hideTable();
 
 // Creating Tr
 
@@ -54,8 +68,8 @@ function createTr(newStudent) {
                                     <td>${newStudent.contact}</td>
                                     <td>${newStudent.email}</td>
                                     <td class="d-flex justify-content-between">
-                                        <i onclick = "editStd(this)" class="fa-solid fa-pen-to-square fa-2x text-primary"></i>
-                                        <i onclick = "removeStd(this)" class="fa-regular fa-trash-can fa-2x text-danger"></i>
+                                        <button onclick="editStd(this)" class="btn btn-sm"><i class="fa-solid fa-pen-to-square fa-2x text-primary"></i></button>
+                                        <button onclick="removeStd(this)" class="btn btn-sm deleteBtn"><i class="fa-regular fa-trash-can fa-2x text-danger"></i></button>
                                     </td>`;
   stdList.append(tr);
 }
@@ -64,6 +78,9 @@ function createTr(newStudent) {
 
 function editStd(ele) {
   let editId = ele.closest("tr").id;
+
+  let deleteBtn = ele.closest("tr").querySelector(".deleteBtn");
+  deleteBtn.disabled = true;
 
   let editObj = studentArr.find((ele) => ele.id === editId);
 
@@ -102,6 +119,10 @@ function onUpdateClick(event) {
 
   studentArr[getIndex] = updatedObj;
   localStorage.setItem("studentArr", JSON.stringify(studentArr));
+  hideTable();
+
+  let deleteBtn = document.getElementById(updateId).querySelector(".deleteBtn");
+  deleteBtn.disabled = false;
 
   let td = [...document.getElementById(updateId).children];
 
@@ -136,6 +157,7 @@ function removeStd(ele) {
 
     studentArr.splice(getIndex, 1);
     localStorage.setItem("studentArr", JSON.stringify(studentArr));
+    hideTable();
 
     ele.closest("tr").remove();
 
@@ -168,6 +190,7 @@ function onStdAdd(event) {
 
   studentArr.push(newStudent);
   localStorage.setItem("studentArr", JSON.stringify(studentArr));
+  hideTable();
 
   Swal.fire({
     title: "Student Added!",
